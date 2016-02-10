@@ -1,0 +1,15 @@
+[program:scrapyd]
+directory={{scrapyd_home}}
+environment=SCRAPY_ENV="production"
+command={{scrapyd_home}}/env/bin/scrapyd -n
+user={{scrapyd_user}}
+autostart=true
+autorestart=true
+redirect_stderr=true
+{% if scrapyd_logfile_dir %}
+stdout_logfile={{scrapyd_logfile_dir}}/scrapyd.log
+stderr_logfile={{scrapyd_logfile_dir}}/scrapyd.log
+{% else %}
+stdout_logfile=syslog
+stderr_logfile=syslog
+{% endif %}

@@ -1,0 +1,7 @@
+---
+# handlers file for lepture.scrapyd
+
+- name: scrapyd restart
+  supervisorctl: name={{item}} state=restarted
+  with_items:
+    - scrapyd

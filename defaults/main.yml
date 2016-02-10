@@ -1,0 +1,10 @@
+---
+# defaults file for lepture.scrapyd
+
+scrapyd_user: scrapy
+scrapyd_home: /var/www/scrapyd
+scrapyd_python: python2.7
+scrapyd_version: 1.1.0
+scrapyd_extensions: []
+scrapyd_port: 6800
+scrapyd_logfile_dir:
