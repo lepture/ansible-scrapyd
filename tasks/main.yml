@@ -1,2 +1,10 @@
 ---
 # tasks file for lepture.scrapyd
+
+- include: install.deb.yml
+  when: ansible_os_family == 'Debian'
+  tags: [scrapyd, scrapyd-install]
+
+- include: scrapyd.yml
+  when: scrapyd_enabled
+  tags: [scrapyd]

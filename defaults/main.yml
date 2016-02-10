@@ -1,6 +1,7 @@
 ---
 # defaults file for lepture.scrapyd
 
+scrapyd_enabled: true
 scrapyd_user: scrapy
 scrapyd_home: /var/www/scrapyd
 scrapyd_python: python2.7
