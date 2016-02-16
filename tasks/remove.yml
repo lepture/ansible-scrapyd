@@ -1,0 +1,19 @@
+---
+
+- name: Stop scrapyd
+  supervisorctl: name=scrapyd state=stopped
+
+- name: Configure Nginx
+  file: state=absent path={{nginx_dir|default('/etc/nginx')}}/sites-enabled/scrapyd.conf
+  notify: [nginx reload]
+  when: nginx_enabled
+
+- name: Remove supervisor configuration
+  file: state=absent path={{supervisor_incdir}}/scrapyd.conf
+  notify: [supervisor restart]
+
+- name: Remove scrapyd directory
+  file: state=absent path={{scrapyd_home}}
+
+- name: Remove scrapyd user
+  user: name={{scrapyd_user}} state=absent remove=yes
