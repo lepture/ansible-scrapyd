@@ -10,3 +10,9 @@ scrapyd_extensions: []
 scrapyd_port: 6800
 scrapyd_host: scrapyd.example.com
 scrapyd_logfile_dir:
+
+scrapyd_max_proc: 0
+scrapyd_max_proc_per_cpu: 4
+scrapyd_poll_interval: 3
+scrapyd_jobs_to_keep: 5
+scrapyd_scrapy_settings: []

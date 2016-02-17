@@ -1,19 +1,19 @@
 [scrapyd]
-eggs_dir    = eggs
-logs_dir    = logs
-items_dir   = items
-jobs_to_keep = 5
-dbs_dir     = dbs
-max_proc    = 0
-max_proc_per_cpu = 4
+eggs_dir = eggs
+logs_dir = logs
+items_dir = items
+dbs_dir = dbs
+jobs_to_keep = {{ scrapyd_jobs_to_keep }}
+max_proc = {{ scrapyd_max_proc }}
+max_proc_per_cpu = {{ scrapyd_max_proc_per_cpu }}
+poll_interval = {{ scrapyd_poll_interval }}
 finished_to_keep = 100
-poll_interval = 5
-http_port   = {{scrapyd_port}}
-debug       = off
-runner      = scrapyd.runner
+http_port = {{scrapyd_port}}
+debug = off
+runner = scrapyd.runner
 application = scrapyd.app.application
-launcher    = scrapyd.launcher.Launcher
-webroot     = scrapyd.website.Root
+launcher = scrapyd.launcher.Launcher
+webroot = scrapyd.website.Root
 
 [services]
 schedule.json     = scrapyd.webservice.Schedule
