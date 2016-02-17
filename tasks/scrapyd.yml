@@ -29,9 +29,12 @@
   pip: name={{item}} executable={{scrapyd_home}}/env/bin/pip
   with_items: scrapyd_extensions
 
+- name: Configure scrapy local settings
+  template: src=local_settings.py.j2 dest={{scrapyd_home}}/local_settings.py owner={{scrapyd_user}}
+  when: scrapyd_scrapy_settings
+
 - name: Configure Scrapyd
   template: src=scrapyd.conf.j2 dest={{scrapyd_home}}/scrapyd.conf owner={{scrapyd_user}}
-  register: config
   notify: [scrapyd restart]
 
 - name: Configure Supervisor
