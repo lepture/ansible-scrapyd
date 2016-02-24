@@ -40,9 +40,6 @@
 - name: Configure Supervisor
   template: src=supervisor.conf.j2 dest={{supervisor_incdir}}/scrapyd.conf
 
-- name: Ensure scrapyd directory owner
-  file: state=directory path={{scrapyd_home}} owner={{scrapyd_user}} recurse=yes
-
 - name: Configure Nginx
   template: src=nginx.conf.j2 dest={{nginx_dir|default('/etc/nginx')}}/sites-enabled/scrapyd.conf
   notify: [nginx reload]
