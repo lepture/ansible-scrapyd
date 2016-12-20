@@ -20,6 +20,11 @@
   sudo: yes
   sudo_user: "{{scrapyd_user}}"
 
+- name: Upgrade setuptools
+  pip: name=setuptools virtualenv={{scrapyd_home}}/env extra_args=--upgrade
+  sudo: yes
+  sudo_user: "{{scrapyd_user}}"
+
 - name: Install Scrapyd
   pip: name=scrapyd version={{scrapyd_version}} virtualenv={{scrapyd_home}}/env
   sudo: yes
