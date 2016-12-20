@@ -29,6 +29,10 @@
   pip: name={{item}} virtualenv={{scrapyd_home}}/env
   with_items: scrapyd_extensions
 
+- name: Prepare log directory
+  file: state=directory path={{scrapyd_logfile_dir}}
+  when: scrapyd_logfile_dir is defined
+
 - name: Configure scrapy local settings
   template: src=local_settings.py.j2 dest={{scrapyd_home}}/local_settings.py owner={{scrapyd_user}}
   when: scrapyd_scrapy_settings
