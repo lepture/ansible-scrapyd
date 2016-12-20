@@ -32,7 +32,7 @@
 
 - name: Install extensions
   pip: name={{item}} virtualenv={{scrapyd_home}}/env
-  with_items: scrapyd_extensions
+  with_items: "{{scrapyd_extensions}}"
 
 - name: Prepare log directory
   file: state=directory path={{scrapyd_logfile_dir}}
